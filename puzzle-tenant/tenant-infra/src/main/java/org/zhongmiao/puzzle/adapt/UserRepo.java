@@ -25,7 +25,7 @@ public class UserRepo implements UserService {
     @Transactional
     public UserDetails loadUser(Long id) {
 
-        UserDetails          ud       = null;
+        UserDetails ud = null;
         Optional<PuzzleUser> loadUser = dao.findById(id);
         if (loadUser.isPresent()) {
             PuzzleUser it = loadUser.get();
@@ -35,12 +35,12 @@ public class UserRepo implements UserService {
         return ud;
     }
 
-    private static UserDetails mapUser2Detail(PuzzleUser it) {
+    static UserDetails mapUser2Detail(PuzzleUser it) {
 
-        UserDetails      ud;
-        List<PuzzleRole> roles   = Optional.ofNullable(it.getRoles()).orElse(Collections.emptyList());
+        UserDetails ud;
+        List<PuzzleRole> roles = Optional.ofNullable(it.getRoles()).orElse(Collections.emptyList());
 
-        List<String>     rolCode = roles.stream().map(PuzzleRole::getRoleCode).distinct().toList();
+        List<String> rolCode = roles.stream().map(PuzzleRole::getRoleCode).distinct().toList();
         List<String> permissionCode = roles.stream().map(PuzzleRole::getPermissions).flatMap(Collection::stream).map(
                 PuzzlePermission::getPermissionCode).distinct().toList();
 

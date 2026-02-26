@@ -9,6 +9,13 @@ public class AuthCmd {
     }
 
     @Data
+    public static class CodeSend {
+        private String receiver;
+
+        private LoginType type;
+    }
+
+    @Data
     public static class LoginPhone {
 
         private String phone;

@@ -1,5 +1,6 @@
 package org.zhongmiao.puzzle.jpa.entity;
 
+import com.dev.lib.entity.encrypt.Encrypt;
 import com.dev.lib.jpa.TenantEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -14,6 +15,9 @@ public class PuzzleUser extends TenantEntity {
 
     @Column(length = 64)
     private String username;
+
+    @Encrypt
+    private String password;
 
     @Column(length = 128)
     private String email;
