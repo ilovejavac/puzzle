@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.zhongmiao.puzzle</groupId>
+    <artifactId>puzzle</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>puzzle-tenant</module>
+        <module>puzzle-source</module>
+        <module>puzzle-meta</module>
+        <module>puzzle-model</module>
+        <module>puzzle-query</module>
+        <module>puzzle-engine</module>
+        <module>puzzle-system</module>
+        <module>puzzle-ai</module>
+    </modules>
+
+    <properties>
+        <db.driver>org.postgresql.Driver</db.driver>
+        <db.dialect>org.hibernate.dialect.PostgreSQLDialect</db.dialect>
+    </properties>
+
+    <parent>
+        <groupId>com.dev.lib</groupId>
+        <artifactId>common-lib</artifactId>
+        <version>1.4.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.dev.lib</groupId>
+            <artifactId>common-core</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

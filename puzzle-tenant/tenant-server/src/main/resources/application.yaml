@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: @artifactId@
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  profiles:
+    include: lib
+    active: dev
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+server:
+  servlet:
+    context-path: /puzzle-tenant
+  port: 8201
