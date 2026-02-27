@@ -9,7 +9,10 @@ import org.zhongmiao.puzzle.SourceType;
 @Data
 public class DatasourceQuery {
 
-    private Long tenantId;
-    private String name;
+    private Long       tenantId;
+
+    private String     name;
+
     private SourceType type;
+
 }

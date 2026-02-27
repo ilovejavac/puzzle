@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.zhongmiao.puzzle.auth.LoginType;
 
-
 @Component
 @RequiredArgsConstructor
 public class AuthCodeManager {
@@ -14,6 +13,8 @@ public class AuthCodeManager {
     }
 
     public boolean verify(LoginType loginType, String receiver, String code) {
+
         return true;
     }
+
 }

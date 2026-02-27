@@ -8,7 +8,10 @@ import lombok.Data;
 @Data
 public class ModelQuery {
 
-    private Long tenantId;
-    private String name;
+    private Long        tenantId;
+
+    private String      name;
+
     private ModelStatus status;
+
 }

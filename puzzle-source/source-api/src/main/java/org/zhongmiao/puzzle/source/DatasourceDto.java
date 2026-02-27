@@ -9,13 +9,22 @@ import org.zhongmiao.puzzle.SourceType;
 @Data
 public class DatasourceDto {
 
-    private Long id;
-    private String name;
-    private String description;
+    private Long       id;
+
+    private String     name;
+
+    private String     description;
+
     private SourceType type;
-    private String host;
-    private Integer port;
-    private String database;
-    private String username;
-    private Boolean connected;
+
+    private String     host;
+
+    private Integer    port;
+
+    private String     database;
+
+    private String     username;
+
+    private Boolean    connected;
+
 }

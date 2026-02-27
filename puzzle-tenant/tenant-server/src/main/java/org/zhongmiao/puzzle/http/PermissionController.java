@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zhongmiao.puzzle.permission.PermissionDto;
+import org.zhongmiao.puzzle.permission.PermissionService;
 
 import java.util.List;
 
@@ -17,13 +18,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PermissionController {
 
+    private final PermissionService permissionService;
+
     /**
      * 获取可授权资源列表
      */
     @GetMapping("/api/permission/resources")
     public ServerResponse<List<PermissionDto>> queryPermissionResources() {
-
-        return ServerResponse.ok();
+        return ServerResponse.success(permissionService.queryPermissionResources());
     }
 
 }

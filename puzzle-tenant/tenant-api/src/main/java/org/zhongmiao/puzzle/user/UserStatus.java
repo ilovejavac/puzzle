@@ -15,5 +15,5 @@ public enum UserStatus implements CodeEnums {
 
     private final Integer code;
 
-    private final String  message;
+    private final String message;
 }

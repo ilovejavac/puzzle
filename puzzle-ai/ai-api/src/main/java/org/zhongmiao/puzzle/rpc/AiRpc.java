@@ -22,4 +22,5 @@ public interface AiRpc {
      * Suggest metrics based on data
      */
     String suggestMetrics(Long datasourceId, String tableName);
+
 }

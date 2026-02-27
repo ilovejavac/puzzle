@@ -3,6 +3,7 @@ package org.zhongmiao.puzzle.engine;
 import lombok.Data;
 
 public class EngineDto {
+
     private EngineDto() {
 
     }
@@ -11,4 +12,5 @@ public class EngineDto {
     public static class Task {
 
     }
+
 }

@@ -8,7 +8,10 @@ import lombok.Data;
 @Data
 public class AiQueryRequest {
 
-    private String prompt;
-    private String context;
+    private String  prompt;
+
+    private String  context;
+
     private Integer maxTokens;
+
 }

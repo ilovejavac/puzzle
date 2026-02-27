@@ -1,10 +1,5 @@
 package org.zhongmiao.puzzle.model;
 
-import org.zhongmiao.puzzle.model.ModelCmd;
-import org.zhongmiao.puzzle.model.ModelDto;
-import org.zhongmiao.puzzle.model.ModelQuery;
-import org.zhongmiao.puzzle.model.ModelStatus;
-
 import java.util.List;
 
 /**
@@ -51,4 +46,5 @@ public interface ModelService {
      * Update model status
      */
     void updateModelStatus(Long modelId, ModelStatus status);
+
 }

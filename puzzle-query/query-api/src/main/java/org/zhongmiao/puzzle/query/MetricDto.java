@@ -8,10 +8,16 @@ import lombok.Data;
 @Data
 public class MetricDto {
 
-    private Long id;
+    private Long   id;
+
     private String name;
+
     private String description;
+
     private String aggregation;
+
     private String column;
-    private Long modelId;
+
+    private Long   modelId;
+
 }

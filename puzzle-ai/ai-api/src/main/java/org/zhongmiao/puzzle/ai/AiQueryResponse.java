@@ -8,8 +8,12 @@ import lombok.Data;
 @Data
 public class AiQueryResponse {
 
-    private String answer;
-    private String sql;
+    private String  answer;
+
+    private String  sql;
+
     private Boolean success;
-    private String errorMessage;
+
+    private String  errorMessage;
+
 }

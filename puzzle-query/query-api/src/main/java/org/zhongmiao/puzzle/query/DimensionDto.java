@@ -8,10 +8,16 @@ import lombok.Data;
 @Data
 public class DimensionDto {
 
-    private Long id;
+    private Long   id;
+
     private String name;
+
     private String description;
+
     private String column;
+
     private String type;
-    private Long modelId;
+
+    private Long   modelId;
+
 }

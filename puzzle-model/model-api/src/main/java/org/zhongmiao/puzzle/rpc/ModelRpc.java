@@ -61,4 +61,5 @@ public interface ModelRpc {
      * Get model full definition
      */
     ModelDto getModelFull(Long modelId);
+
 }

@@ -46,4 +46,5 @@ public interface DatasourceRpc {
      * Get connection config
      */
     Map<String, Object> getConnConfig(Long datasourceId);
+
 }

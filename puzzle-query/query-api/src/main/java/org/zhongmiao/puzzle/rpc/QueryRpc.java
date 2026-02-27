@@ -46,4 +46,5 @@ public interface QueryRpc {
      * Get dimensions by model
      */
     List<DimensionDto> getDimensionsByModel(Long modelId);
+
 }

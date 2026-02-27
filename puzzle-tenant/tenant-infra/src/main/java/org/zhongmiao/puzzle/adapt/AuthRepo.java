@@ -24,11 +24,13 @@ public class AuthRepo implements AuthService {
 
     @Override
     public void sendCode(AuthCmd.CodeSend cmd) {
+
         codeManager.send(cmd.getType(), cmd.getReceiver());
     }
 
     @Override
     public UserDetails login(AuthCmd.LoginPhone cmd) {
+
         if (!codeManager.verify(LoginType.PHONE, cmd.getPhone(), cmd.getCode())) {
             throw new TenantException(TenantError.AUTH_CODE_VERIFY_FAILED);
         }
@@ -42,6 +44,7 @@ public class AuthRepo implements AuthService {
 
     @Override
     public UserDetails login(AuthCmd.LoginMail cmd) {
+
         if (!codeManager.verify(LoginType.MAIL, cmd.getMail(), cmd.getCode())) {
             throw new TenantException(TenantError.AUTH_CODE_VERIFY_FAILED);
         }
@@ -55,6 +58,7 @@ public class AuthRepo implements AuthService {
 
     @Override
     public UserDetails login(AuthCmd.LoginPass cmd) {
+
         PuzzleUser pu = userDao.load(new UserDao.QueryUser().setUsername(cmd.getUsername())).orElseThrow(
                 () -> new TenantException(TenantError.USER_NOT_EXISTS)
         );
@@ -65,4 +69,5 @@ public class AuthRepo implements AuthService {
 
         return UserRepo.mapUser2Detail(pu);
     }
+
 }

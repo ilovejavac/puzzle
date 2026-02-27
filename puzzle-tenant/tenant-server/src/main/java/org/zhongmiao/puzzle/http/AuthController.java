@@ -29,6 +29,7 @@ public class AuthController {
      */
     @PostMapping("/api/auth/code-send")
     public ServerResponse<Void> sendCode(@RequestBody @Validated AuthCmd.CodeSend cmd) {
+
         authService.sendCode(cmd);
 
         return ServerResponse.ok();
@@ -41,6 +42,7 @@ public class AuthController {
      */
     @PostMapping("/api/auth/pass-login")
     public ServerResponse<String> loginPass(@RequestBody @Validated AuthCmd.LoginPass cmd) {
+
         UserDetails ud = authService.login(cmd);
 
         return ServerResponse.success(
@@ -53,6 +55,7 @@ public class AuthController {
      */
     @PostMapping("/api/auth/mail-login")
     public ServerResponse<String> loginMail(@RequestBody @Validated AuthCmd.LoginMail cmd) {
+
         UserDetails ud = authService.login(cmd);
 
         return ServerResponse.success(
@@ -65,6 +68,7 @@ public class AuthController {
      */
     @PostMapping("/api/auth/phone-login")
     public ServerResponse<String> loginPhone(@RequestBody @Validated AuthCmd.LoginPhone cmd) {
+
         UserDetails ud = authService.login(cmd);
 
         return ServerResponse.success(
@@ -77,6 +81,7 @@ public class AuthController {
      */
     @GetMapping("/api/current")
     public ServerResponse<UserDetails> current() {
+
         UserDetails current = SecurityContextHolder.get();
 
         return ServerResponse.success(current);

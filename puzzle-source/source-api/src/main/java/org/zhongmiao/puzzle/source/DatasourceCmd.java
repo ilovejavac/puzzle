@@ -11,13 +11,22 @@ import java.util.Map;
 @Data
 public class DatasourceCmd {
 
-    private String name;
-    private String description;
-    private SourceType type;
-    private String host;
-    private Integer port;
-    private String database;
-    private String username;
-    private String password;
+    private String              name;
+
+    private String              description;
+
+    private SourceType          type;
+
+    private String              host;
+
+    private Integer             port;
+
+    private String              database;
+
+    private String              username;
+
+    private String              password;
+
     private Map<String, Object> properties;
+
 }

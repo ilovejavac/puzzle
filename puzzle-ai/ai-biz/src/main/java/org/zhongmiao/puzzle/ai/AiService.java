@@ -1,8 +1,5 @@
 package org.zhongmiao.puzzle.ai;
 
-import org.zhongmiao.puzzle.ai.AiQueryRequest;
-import org.zhongmiao.puzzle.ai.AiQueryResponse;
-
 /**
  * AI Service
  */
@@ -22,4 +19,5 @@ public interface AiService {
      * Suggest metrics based on data
      */
     String suggestMetrics(Long datasourceId, String tableName);
+
 }

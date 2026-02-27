@@ -8,11 +8,18 @@ import lombok.Data;
 @Data
 public class SourceColumnDto {
 
-    private Long id;
-    private Long tableId;
-    private String columnName;
-    private String columnType;
-    private String columnComment;
+    private Long    id;
+
+    private Long    tableId;
+
+    private String  columnName;
+
+    private String  columnType;
+
+    private String  columnComment;
+
     private Boolean nullable;
+
     private Boolean primaryKey;
+
 }

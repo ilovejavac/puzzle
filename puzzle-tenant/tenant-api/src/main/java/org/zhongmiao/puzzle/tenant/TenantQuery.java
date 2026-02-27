@@ -3,6 +3,7 @@ package org.zhongmiao.puzzle.tenant;
 import lombok.Data;
 
 public class TenantQuery {
+
     private TenantQuery() {
 
     }
@@ -11,4 +12,5 @@ public class TenantQuery {
     public static class QueryTenant {
 
     }
+
 }

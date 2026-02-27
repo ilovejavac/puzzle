@@ -1,8 +1,5 @@
 package org.zhongmiao.puzzle.meta;
 
-import org.zhongmiao.puzzle.meta.SourceColumnDto;
-import org.zhongmiao.puzzle.meta.SourceTableDto;
-
 import java.util.List;
 
 /**
@@ -29,4 +26,5 @@ public interface MetadataService {
      * List columns of table
      */
     List<SourceColumnDto> listColumns(Long tableId);
+
 }

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.zhongmiao.puzzle.role.RoleCmd;
 import org.zhongmiao.puzzle.role.RoleDto;
 import org.zhongmiao.puzzle.role.RoleQuery;
+import org.zhongmiao.puzzle.role.RoleService;
 
+import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
@@ -21,13 +23,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RoleController {
 
+    private final RoleService roleService;
+
     /**
      * 创建角色
      */
     @RequirePermission("role:create")
     @PostMapping("/api/role/create-role")
     public ServerResponse<Void> createRole(@RequestBody @Validated RoleCmd.CreateRole cmd) {
-
+        roleService.createRole(cmd);
         return ServerResponse.ok();
     }
 
@@ -37,7 +41,7 @@ public class RoleController {
     @RequirePermission("role:update")
     @PutMapping("/api/role/update-role")
     public ServerResponse<Void> updateRole(@RequestBody RoleCmd.UpdateRole cmd) {
-
+        roleService.updateRole(cmd);
         return ServerResponse.ok();
     }
 
@@ -47,18 +51,17 @@ public class RoleController {
     @RequirePermission("role:delete")
     @DeleteMapping("/api/role/delete-roles")
     public ServerResponse<Void> deleteRole(@RequestBody List<String> ids) {
-
+        roleService.deleteRoles(ids);
         return ServerResponse.ok();
     }
 
     /**
-     * 角色列表
+     * 角色列表（分页）
      */
     @RequirePermission("role:list")
     @PostMapping("/api/role/list-role")
     public ServerResponse<List<RoleDto.Role>> listRole(@RequestBody @Validated QueryRequest<RoleQuery.QueryRoleList> qry) {
-
-        return ServerResponse.ok();
+        return ServerResponse.success(roleService.listRole(qry));
     }
 
     /**
@@ -67,8 +70,7 @@ public class RoleController {
     @RequirePermission("role:list")
     @GetMapping("/api/role/{id}")
     public ServerResponse<RoleDto.RoleDetail> getRole(@PathVariable String id) {
-
-        return ServerResponse.ok();
+        return ServerResponse.success(roleService.getRole(id));
     }
 
     /**
@@ -77,7 +79,7 @@ public class RoleController {
     @RequirePermission("role:update")
     @PutMapping("/api/role/update-role-permission")
     public ServerResponse<Void> bindPermission(@RequestBody RoleCmd.UpdateRolePermission cmd) {
-
+        roleService.updateRolePermission(cmd);
         return ServerResponse.ok();
     }
 

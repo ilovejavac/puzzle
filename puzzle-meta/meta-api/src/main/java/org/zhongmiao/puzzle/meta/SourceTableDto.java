@@ -8,10 +8,16 @@ import lombok.Data;
 @Data
 public class SourceTableDto {
 
-    private Long id;
-    private Long datasourceId;
-    private String schemaName;
-    private String tableName;
-    private String tableComment;
+    private Long                            id;
+
+    private Long                            datasourceId;
+
+    private String                          schemaName;
+
+    private String                          tableName;
+
+    private String                          tableComment;
+
     private java.util.List<SourceColumnDto> columns;
+
 }

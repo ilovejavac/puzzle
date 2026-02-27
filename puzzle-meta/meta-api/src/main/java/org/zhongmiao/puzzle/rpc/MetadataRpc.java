@@ -39,4 +39,5 @@ public interface MetadataRpc {
      * Register warehouse table
      */
     void registerWarehouseTable(Long modelId, String tableName);
+
 }

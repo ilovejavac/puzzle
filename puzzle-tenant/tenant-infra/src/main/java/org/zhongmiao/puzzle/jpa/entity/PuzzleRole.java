@@ -3,6 +3,7 @@ package org.zhongmiao.puzzle.jpa.entity;
 import com.dev.lib.jpa.TenantEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.zhongmiao.puzzle.role.RoleType;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class PuzzleRole extends TenantEntity {
     private String roleName;
 
     private String description;
+
+    private RoleType type;
 
     @ManyToMany
     @JoinTable(

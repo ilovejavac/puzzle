@@ -1,9 +1,5 @@
 package org.zhongmiao.puzzle.source;
 
-import org.zhongmiao.puzzle.source.DatasourceCmd;
-import org.zhongmiao.puzzle.source.DatasourceDto;
-import org.zhongmiao.puzzle.source.DatasourceQuery;
-
 import java.util.List;
 
 /**
@@ -40,4 +36,5 @@ public interface DatasourceService {
      * Test connection
      */
     Boolean testConnection(Long id);
+
 }

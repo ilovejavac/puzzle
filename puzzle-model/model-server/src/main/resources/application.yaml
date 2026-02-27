@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: @artifactId@
+  sql:
+    init:
+      mode: always
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:puzzle}?currentSchema=public&stringtype=unspecified&autosave=always&cleanupSavePoints=true
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+  profiles:
+    include: lib
+    active: dev
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+server:
+  servlet:
+    context-path: /puzzle-model
+  port: 8801
+app:
+  storage:
+    type: minio
+    minio:
+      endpoint: ${MINIO_ENDPOINT:http://localhost:9000}
+      bucket: ${MINIO_BUCKET:puzzle}
+      access-key: ${MINIO_ACCESS_KEY:minioadmin}
+      secret-key: ${MINIO_SECRET_KEY:minioadmin}
+  security:
+    secret: ${APP_SECURITY_SECRET:change-this-secret-in-production}

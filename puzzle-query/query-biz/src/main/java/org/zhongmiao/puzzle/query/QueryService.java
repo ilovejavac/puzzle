@@ -1,10 +1,5 @@
 package org.zhongmiao.puzzle.query;
 
-import org.zhongmiao.puzzle.query.DimensionDto;
-import org.zhongmiao.puzzle.query.MetricDto;
-import org.zhongmiao.puzzle.query.MetricQueryRequest;
-import org.zhongmiao.puzzle.query.QueryDto;
-
 import java.util.List;
 
 /**
@@ -46,4 +41,5 @@ public interface QueryService {
      * Get dimensions by model
      */
     List<DimensionDto> getDimensionsByModel(Long modelId);
+
 }

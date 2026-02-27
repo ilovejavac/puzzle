@@ -1,6 +1,7 @@
 package org.zhongmiao.puzzle.query;
 
 import lombok.Data;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,11 +11,18 @@ import java.util.Map;
 @Data
 public class MetricQueryRequest {
 
-    private List<Long> metricIds;
-    private List<Long> dimensionIds;
+    private List<Long>          metricIds;
+
+    private List<Long>          dimensionIds;
+
     private Map<String, Object> filters;
-    private String startTime;
-    private String endTime;
-    private Integer limit;
-    private Integer offset;
+
+    private String              startTime;
+
+    private String              endTime;
+
+    private Integer             limit;
+
+    private Integer             offset;
+
 }

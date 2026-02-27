@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import org.zhongmiao.puzzle.user.UserCmd;
 import org.zhongmiao.puzzle.user.UserDto;
 import org.zhongmiao.puzzle.user.UserQuery;
+import org.zhongmiao.puzzle.user.UserService;
 
+import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
@@ -20,13 +22,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
+    private final UserService userService;
+
     /**
      * 创建用户
      */
     @RequirePermission("user:create")
     @PostMapping("/api/user/create-user")
     public ServerResponse<Void> createUser(@RequestBody UserCmd.CreateUser cmd) {
-
+        userService.createUser(cmd);
         return ServerResponse.ok();
     }
 
@@ -36,7 +40,7 @@ public class UserController {
     @RequirePermission("user:update")
     @PutMapping("/api/user/update-user")
     public ServerResponse<Void> updateUser(@RequestBody UserCmd.UpdateUser cmd) {
-
+        userService.updateUser(cmd);
         return ServerResponse.ok();
     }
 
@@ -46,18 +50,17 @@ public class UserController {
     @RequirePermission("user:delete")
     @DeleteMapping("/api/user/delete-user")
     public ServerResponse<Void> deleteUser(@RequestBody List<String> ids) {
-
+        userService.deleteUsers(ids);
         return ServerResponse.ok();
     }
 
     /**
-     * 用户列表
+     * 用户列表（分页）
      */
     @RequirePermission("user:list")
     @PostMapping("/api/user/list-user")
     public ServerResponse<List<UserDto.UserList>> listUser(@RequestBody QueryRequest<UserQuery.QueryUser> qry) {
-
-        return ServerResponse.ok();
+        return ServerResponse.success(userService.listUser(qry));
     }
 
     /**
@@ -66,8 +69,7 @@ public class UserController {
     @RequirePermission("user:list")
     @GetMapping("/api/user/{id}")
     public ServerResponse<UserDto.UserList> getUser(@PathVariable String id) {
-
-        return ServerResponse.ok();
+        return ServerResponse.success(userService.getUser(id));
     }
 
 }
