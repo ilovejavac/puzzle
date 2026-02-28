@@ -1,5 +1,7 @@
 package org.zhongmiao.puzzle.model;
 
+import org.zhongmiao.puzzle.enums.ModelStatus;
+
 import java.util.List;
 
 /**

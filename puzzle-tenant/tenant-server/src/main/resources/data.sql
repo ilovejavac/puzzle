@@ -16,7 +16,7 @@ VALUES (
     CURRENT_TIMESTAMP,
     CURRENT_TIMESTAMP
 )
-ON CONFLICT (id) DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 -- =====================================================
 -- 2. 创建初始用户
@@ -55,7 +55,7 @@ VALUES
         0,
         0
     )
-ON CONFLICT (id) DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 -- =====================================================
 -- 3. 创建初始角色
@@ -90,7 +90,7 @@ VALUES
         0,
         0
     )
-ON CONFLICT (id) DO NOTHING;
+ON CONFLICT DO NOTHING;
 
 -- =====================================================
 -- 4. 用户-角色关联

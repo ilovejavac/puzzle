@@ -1,65 +1,53 @@
 package org.zhongmiao.puzzle.rpc;
 
-import org.zhongmiao.puzzle.model.ModelCmd;
 import org.zhongmiao.puzzle.model.ModelDto;
-import org.zhongmiao.puzzle.model.ModelQuery;
-import org.zhongmiao.puzzle.model.ModelStatus;
-
-import java.util.List;
+import org.zhongmiao.puzzle.enums.ModelStatus;
 
 /**
- * Model RPC Service
+ * 模型 RPC 服务
+ * <p>
+ * 被调用方: engine, query
  */
 public interface ModelRpc {
 
     /**
-     * Create model
+     * 获取模型完整定义
+     * <p>
+     * 包含字段、关联等信息（被 engine 模块调用）
+     *
+     * @param modelId 模型 ID
+     * @return 模型完整定义
      */
-    Long createModel(ModelCmd cmd);
+    ModelDto.ModelFull getModelFull(Long modelId);
 
     /**
-     * Update model
-     */
-    void updateModel(Long id, ModelCmd cmd);
-
-    /**
-     * Delete model
-     */
-    void deleteModel(Long id);
-
-    /**
-     * Get model by id
-     */
-    ModelDto getModel(Long id);
-
-    /**
-     * Query models
-     */
-    List<ModelDto> queryModels(ModelQuery query);
-
-    /**
-     * Deploy model
-     */
-    void deployModel(Long modelId);
-
-    /**
-     * Stop model
-     */
-    void stopModel(Long modelId);
-
-    /**
-     * Update model status
+     * 更新模型状态
+     * <p>
+     * 更新模型的部署/运行状态（被 engine 模块调用）
+     *
+     * @param modelId 模型 ID
+     * @param status  新状态
      */
     void updateModelStatus(Long modelId, ModelStatus status);
 
     /**
-     * Get model output table
+     * 保存模型产出表信息
+     * <p>
+     * 保存模型生成的数仓表信息（被 engine 模块调用）
+     *
+     * @param modelId     模型 ID
+     * @param outputTable 产出表名
      */
-    String getModelOutputTable(Long modelId);
+    void saveOutput(Long modelId, String outputTable);
 
     /**
-     * Get model full definition
+     * 获取模型产出表名
+     * <p>
+     * 获取模型生成的数仓表名（被 query 模块调用）
+     *
+     * @param modelId 模型 ID
+     * @return 产出表名
      */
-    ModelDto getModelFull(Long modelId);
+    String getModelOutputTable(Long modelId);
 
 }

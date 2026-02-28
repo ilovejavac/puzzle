@@ -1,32 +1,71 @@
 package org.zhongmiao.puzzle.source;
 
 import lombok.Data;
-import org.zhongmiao.puzzle.SourceType;
-
-import java.util.Map;
+import org.zhongmiao.puzzle.conn.ConnConfig;
+import org.zhongmiao.puzzle.source.enums.SourceType;
 
 /**
- * Datasource Command DTO
+ * 数据源命令对象
  */
 @Data
 public class DatasourceCmd {
 
-    private String              name;
+    private DatasourceCmd() {
 
-    private String              description;
+    }
 
-    private SourceType          type;
+    /**
+     * 创建数据源
+     */
+    @Data
+    public static class CreateDatasource {
 
-    private String              host;
+        /**
+         * 数据源名称
+         */
+        private String     name;
 
-    private Integer             port;
+        /**
+         * 数据源描述
+         */
+        private String     description;
 
-    private String              database;
+        /**
+         * 数据源类型
+         */
+        private SourceType type;
 
-    private String              username;
+        /**
+         * 连接配置
+         */
+        private ConnConfig connConfig;
 
-    private String              password;
+    }
 
-    private Map<String, Object> properties;
+    /**
+     * 修改数据源
+     */
+    @Data
+    public static class UpdateDatasource extends CreateDatasource {
+
+        /**
+         * 数据源 ID
+         */
+        private Long id;
+
+    }
+
+    /**
+     * 删除数据源
+     */
+    @Data
+    public static class DeleteDatasource {
+
+        /**
+         * 数据源 ID
+         */
+        private Long id;
+
+    }
 
 }

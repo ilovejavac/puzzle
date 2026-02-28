@@ -1,50 +1,22 @@
 package org.zhongmiao.puzzle.rpc;
 
-import org.zhongmiao.puzzle.source.DatasourceCmd;
-import org.zhongmiao.puzzle.source.DatasourceDto;
-import org.zhongmiao.puzzle.source.DatasourceQuery;
-
-import java.util.List;
-import java.util.Map;
+import org.zhongmiao.puzzle.conn.ConnConfig;
 
 /**
- * Datasource RPC Service
+ * 数据源 RPC 服务
+ * <p>
+ * 被调用方: meta, engine
  */
 public interface DatasourceRpc {
 
     /**
-     * Create datasource
+     * 获取数据源连接配置
+     * <p>
+     * 用于元数据同步和引擎执行
+     *
+     * @param datasourceId 数据源 ID
+     * @return 连接配置
      */
-    Long createDatasource(DatasourceCmd cmd);
-
-    /**
-     * Update datasource
-     */
-    void updateDatasource(Long id, DatasourceCmd cmd);
-
-    /**
-     * Delete datasource
-     */
-    void deleteDatasource(Long id);
-
-    /**
-     * Get datasource by id
-     */
-    DatasourceDto getDatasource(Long id);
-
-    /**
-     * Query datasources
-     */
-    List<DatasourceDto> queryDatasources(DatasourceQuery query);
-
-    /**
-     * Test connection
-     */
-    Boolean testConnection(Long id);
-
-    /**
-     * Get connection config
-     */
-    Map<String, Object> getConnConfig(Long datasourceId);
+    ConnConfig getConnConfig(Long datasourceId);
 
 }

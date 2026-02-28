@@ -3,15 +3,23 @@ package org.zhongmiao.puzzle.model;
 import lombok.Data;
 
 /**
- * Model Query DTO
+ * 模型查询对象
  */
 @Data
 public class ModelQuery {
 
-    private Long        tenantId;
+    private ModelQuery() {
 
-    private String      name;
+    }
 
-    private ModelStatus status;
+    @Data
+    public static class QueryModel {
+        private String modelName;
+    }
+
+    @Data
+    public static class GetModel {
+        private Long id;
+    }
 
 }

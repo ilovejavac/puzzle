@@ -1,0 +1,26 @@
+version: "3.8"
+
+x-common-env: &common-env
+  APP_CLOUD_GROUP: TEST
+  SPRING_RABBITMQ_VIRTUAL_HOST: /test
+  SPRING_PROFILES_ACTIVE: test
+
+services:
+  puzzle-tenant:
+    build:
+      context: .
+      args:
+        JAR_FILE: geoai-label-server-1.0.0.jar
+    volumes:
+      - ./data/tenant/log:/app/log
+    environment:
+      <<: *common-env
+      JVM_OPTS: -Xms2g -Xmx2g -XX:MetaspaceSize=256m -XX:MaxMetaspaceSize=512m -XX:+UseG1GC -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/app/log/heapdump.hprof -Xlog:gc*:file=/app/log/gc_%p_%t.log:time,tags:filecount=5,filesize=50M
+    ports:
+      - "18201:8080"
+    networks:
+      - zhongmiao-puzzle
+
+networks:
+  zhongmiao-puzzle:
+    external: true

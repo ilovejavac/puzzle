@@ -33,6 +33,16 @@
             <groupId>org.zhongmiao.puzzle</groupId>
             <artifactId>model-biz</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.zhongmiao.puzzle</groupId>
+            <artifactId>query-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zhongmiao.puzzle</groupId>
+            <artifactId>engine-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,0 +1,117 @@
+version: "3.8"
+
+services:
+  minio:
+    image: bitnami/minio:2025.4.8
+    restart: always
+    environment:
+      - MINIO_BROWSER=on
+      - MINIO_ROOT_USER=root
+      - MINIO_ROOT_PASSWORD=1qazXDR%
+    ports:
+      - '19000:9000'
+      - '19001:9001'
+    volumes:
+      - ./data/minio:/bitnami/minio/data
+    networks:
+      - zhongmiao-puzzle
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  pgsql:
+    #    max_connections = 500
+    image: postgis/postgis:18-3.6
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 1qazXDR%
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./data/pgsql:/var/lib/postgresql
+    networks:
+      - zhongmiao-puzzle
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  opensearch:
+    image: opensearchproject/opensearch:3.4.0
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Ge1qazXDR%oai
+      - plugins.security.disabled=true  # 关闭安全插件
+    ports:
+      - "19200:9200"
+      - "19600:9600"
+    volumes:
+      - ./data/opensearch:/usr/share/opensearch/data
+    networks:
+      - zhongmiao-puzzle
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+
+  rabbit:
+    image: bitnami/rabbitmq:4.1
+    container_name: rabbit
+    restart: always
+    environment:
+      - RABBITMQ_MANAGEMENT_ALLOW_WEB_ACCESS=true
+      - RABBITMQ_USERNAME=root
+      - RABBITMQ_PASSWORD=1qazXDR%
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - ./data/rabbitmq:/bitnami/rabbitmq/mnesia
+    networks:
+      - zhongmiao-puzzle
+    deploy:
+      resources:
+        limits:
+          memory: 6G
+
+  redis:
+    image: bitnami/redis:8.2
+    container_name: redis
+    restart: always
+    ports:
+      - "16379:6379"
+    environment:
+      - REDIS_PASSWORD=1qazXDR%
+    volumes:
+      - ./data/redis:/bitnami/redis/data
+      - ./config/redis.conf:/bitnami/redis/etc/redis.conf
+    networks:
+      - zhongmiao-puzzle
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+
+#  flink
+
+#  SeaTunnel
+
+#  doris
+
+#  Iceberg
+
+#  Kafka
+
+#
+
+
+networks:
+  zhongmiao-puzzle:
+    name: zhongmiao-puzzle
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.36.0/24
