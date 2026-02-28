@@ -26,7 +26,7 @@ ON CONFLICT DO NOTHING;
 INSERT INTO user_tbl (id, biz_id, tenant_id, username, password, email, phone, status, deleted, created_at, updated_at, creator_id, modifier_id)
 VALUES
     (
-        1,
+        -3,
         'admin-usr',
         1,
         'admin',
@@ -97,7 +97,7 @@ ON CONFLICT DO NOTHING;
 -- =====================================================
 INSERT INTO user_role_rel (user_id, role_id)
 VALUES
-    (1, 1), -- admin -> SUPER_ADMIN
+    (-3, 1), -- admin -> SUPER_ADMIN
     (2, 2)  -- testuser -> NORMAL_USER
 ON CONFLICT (user_id, role_id) DO NOTHING;
 

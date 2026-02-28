@@ -21,11 +21,30 @@ spring:
       hibernate:
         format_sql: true
         highlight_sql: true
+  config:
+    import: optional:nacos:${spring.application.name}.yaml
+  cloud:
+    nacos:
+      config:
+        server-addr: ${app.cloud.host}:${app.cloud.port}
+        group: ${app.cloud.group}
+        namespace: ${app.cloud.namespace}
+        username: ${app.cloud.username}
+        password: ${app.cloud.password}
 server:
   servlet:
     context-path: /puzzle-tenant
   port: 8201
 app:
+  dubbo:
+    scan-packages: @groupId@
+  cloud:
+    namespace: ac0ec44f-f749-4441-babb-d502fae9c7e9
+    host: 10.10.24.221
+    port: 8848
+    group: DEV
+    username: nacos
+    password: nacos
   storage:
     type: minio
     minio:

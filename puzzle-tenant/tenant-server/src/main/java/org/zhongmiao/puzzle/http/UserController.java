@@ -10,7 +10,6 @@ import org.zhongmiao.puzzle.user.UserDto;
 import org.zhongmiao.puzzle.user.UserQuery;
 import org.zhongmiao.puzzle.user.UserService;
 
-import org.springframework.data.domain.Page;
 import java.util.List;
 
 /**
@@ -30,6 +29,7 @@ public class UserController {
     @RequirePermission("user:create")
     @PostMapping("/api/user/create-user")
     public ServerResponse<Void> createUser(@RequestBody UserCmd.CreateUser cmd) {
+
         userService.createUser(cmd);
         return ServerResponse.ok();
     }
@@ -40,6 +40,7 @@ public class UserController {
     @RequirePermission("user:update")
     @PutMapping("/api/user/update-user")
     public ServerResponse<Void> updateUser(@RequestBody UserCmd.UpdateUser cmd) {
+
         userService.updateUser(cmd);
         return ServerResponse.ok();
     }
@@ -50,6 +51,7 @@ public class UserController {
     @RequirePermission("user:delete")
     @DeleteMapping("/api/user/delete-user")
     public ServerResponse<Void> deleteUser(@RequestBody List<String> ids) {
+
         userService.deleteUsers(ids);
         return ServerResponse.ok();
     }
@@ -60,6 +62,7 @@ public class UserController {
     @RequirePermission("user:list")
     @PostMapping("/api/user/list-user")
     public ServerResponse<List<UserDto.UserList>> listUser(@RequestBody QueryRequest<UserQuery.QueryUser> qry) {
+
         return ServerResponse.success(userService.listUser(qry));
     }
 
@@ -69,6 +72,7 @@ public class UserController {
     @RequirePermission("user:list")
     @GetMapping("/api/user/{id}")
     public ServerResponse<UserDto.UserList> getUser(@PathVariable String id) {
+
         return ServerResponse.success(userService.getUser(id));
     }
 

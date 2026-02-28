@@ -5,6 +5,7 @@ import com.dev.lib.security.service.AuthenticateService;
 import com.dev.lib.security.util.UserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Component;
 import org.zhongmiao.puzzle.adapt.PermissionRepo;
 import org.zhongmiao.puzzle.user.UserService;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component
+@DubboService
 @RequiredArgsConstructor
 public class AuthenticateServiceImpl implements AuthenticateService {
 
