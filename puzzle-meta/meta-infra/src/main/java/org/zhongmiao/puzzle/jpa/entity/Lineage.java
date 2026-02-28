@@ -7,8 +7,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.Data;
-import org.zhongmiao.puzzle.meta.enums.LineageEntityType;
-import org.zhongmiao.puzzle.meta.enums.LineageTransformType;
+import org.zhongmiao.puzzle.enums.LineageEntityType;
+import org.zhongmiao.puzzle.enums.LineageTransformType;
 
 /**
  * 血缘关系实体

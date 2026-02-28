@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
+import org.zhongmiao.puzzle.engine.EngineTaskService;
 import org.zhongmiao.puzzle.jpa.entity.EngineTask;
 import org.zhongmiao.puzzle.jpa.repository.EngineTaskDao;
 import org.zhongmiao.puzzle.engine.task.*;

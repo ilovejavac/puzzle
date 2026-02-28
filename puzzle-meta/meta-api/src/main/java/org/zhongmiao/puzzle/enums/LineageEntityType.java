@@ -1,4 +1,4 @@
-package org.zhongmiao.puzzle.meta.enums;
+package org.zhongmiao.puzzle.enums;
 
 import com.dev.lib.web.model.CodeEnums;
 import lombok.AllArgsConstructor;

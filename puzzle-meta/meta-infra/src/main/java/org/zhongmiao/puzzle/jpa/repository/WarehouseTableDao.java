@@ -4,7 +4,7 @@ import com.dev.lib.entity.dsl.DslQuery;
 import com.dev.lib.jpa.entity.BaseRepository;
 import lombok.Data;
 import org.zhongmiao.puzzle.jpa.entity.WarehouseTable;
-import org.zhongmiao.puzzle.meta.enums.WarehouseStorageType;
+import org.zhongmiao.puzzle.enums.WarehouseStorageType;
 
 import java.util.Collection;
 import java.util.List;

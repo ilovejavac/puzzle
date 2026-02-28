@@ -4,8 +4,8 @@ import com.dev.lib.entity.dsl.DslQuery;
 import com.dev.lib.jpa.entity.BaseRepository;
 import lombok.Data;
 import org.zhongmiao.puzzle.jpa.entity.Lineage;
-import org.zhongmiao.puzzle.meta.enums.LineageEntityType;
-import org.zhongmiao.puzzle.meta.enums.LineageTransformType;
+import org.zhongmiao.puzzle.enums.LineageEntityType;
+import org.zhongmiao.puzzle.enums.LineageTransformType;
 
 import java.util.Collection;
 import java.util.List;

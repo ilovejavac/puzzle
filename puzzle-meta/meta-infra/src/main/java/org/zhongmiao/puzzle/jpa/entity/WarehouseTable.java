@@ -12,8 +12,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-import org.zhongmiao.puzzle.meta.dto.PartitionSpec;
-import org.zhongmiao.puzzle.meta.enums.WarehouseStorageType;
+import org.zhongmiao.puzzle.meta.PartitionSpec;
+import org.zhongmiao.puzzle.enums.WarehouseStorageType;
 
 import java.time.LocalDateTime;
 import java.util.List;

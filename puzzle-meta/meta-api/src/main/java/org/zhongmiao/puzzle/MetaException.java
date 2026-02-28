@@ -1,4 +1,4 @@
-package org.zhongmiao.puzzle.meta;
+package org.zhongmiao.puzzle;
 
 import com.dev.lib.exceptions.BizException;
 

@@ -1,4 +1,4 @@
-package org.zhongmiao.puzzle.meta.dto;
+package org.zhongmiao.puzzle.meta;
 
 import lombok.Data;
 

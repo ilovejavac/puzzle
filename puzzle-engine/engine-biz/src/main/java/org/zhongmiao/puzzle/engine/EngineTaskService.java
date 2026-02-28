@@ -1,7 +1,10 @@
-package org.zhongmiao.puzzle.engine.task;
+package org.zhongmiao.puzzle.engine;
 
 import com.dev.lib.web.model.QueryRequest;
 import org.springframework.data.domain.Page;
+import org.zhongmiao.puzzle.engine.task.EngineTaskDto;
+import org.zhongmiao.puzzle.engine.task.EngineTaskMetricsDto;
+import org.zhongmiao.puzzle.engine.task.EngineTaskQuery;
 
 import java.util.List;
 

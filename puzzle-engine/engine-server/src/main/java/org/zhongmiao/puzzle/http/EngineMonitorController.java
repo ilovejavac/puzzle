@@ -4,6 +4,7 @@ import com.dev.lib.security.service.annotation.RequirePermission;
 import com.dev.lib.web.model.ServerResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.zhongmiao.puzzle.engine.EngineService;
 import org.zhongmiao.puzzle.engine.EngineTaskService;

@@ -1,11 +1,10 @@
 package org.zhongmiao.puzzle.adapt;
 
-import com.dev.lib.web.model.QueryRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.zhongmiao.puzzle.engine.EngineService;
 import org.zhongmiao.puzzle.jpa.entity.ExecutionPlan;
 import org.zhongmiao.puzzle.jpa.repository.ExecutionPlanDao;
 import org.zhongmiao.puzzle.engine.engine.*;

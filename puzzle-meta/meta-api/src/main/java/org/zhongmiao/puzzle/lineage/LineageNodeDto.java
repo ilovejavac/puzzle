@@ -1,8 +1,6 @@
-package org.zhongmiao.puzzle.meta;
+package org.zhongmiao.puzzle.lineage;
 
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * 血缘图节点 DTO

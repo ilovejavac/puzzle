@@ -1,4 +1,4 @@
-package org.zhongmiao.puzzle.meta;
+package org.zhongmiao.puzzle.lineage;
 
 import lombok.Data;
 import org.zhongmiao.puzzle.enums.LineageEntityType;
