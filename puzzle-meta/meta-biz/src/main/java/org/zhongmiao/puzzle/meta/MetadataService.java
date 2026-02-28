@@ -1,30 +1,43 @@
 package org.zhongmiao.puzzle.meta;
 
+import com.dev.lib.web.model.QueryRequest;
+import org.springframework.data.domain.Page;
+
 import java.util.List;
 
 /**
- * Metadata Service
+ * 元数据服务接口
  */
 public interface MetadataService {
 
     /**
-     * Sync schema from datasource
+     * 同步 Schema
      */
-    void syncSchema(Long datasourceId);
+    void syncSchema(MetadataCmd.SyncSchema cmd);
 
     /**
-     * Get source tables by datasource
+     * 查询源表列表（分页）
      */
-    List<SourceTableDto> getSourceTables(Long datasourceId);
+    Page<SourceTableDto> listSourceTables(QueryRequest<MetadataQuery.QuerySourceTables> qry);
 
     /**
-     * Get source table by id
+     * 获取源表详情
      */
-    SourceTableDto getSourceTable(Long tableId);
+    SourceTableDto getSourceTable(MetadataQuery.GetSourceTable qry);
 
     /**
-     * List columns of table
+     * 获取表的字段列表
      */
-    List<SourceColumnDto> listColumns(Long tableId);
+    List<SourceColumnDto> listColumns(MetadataQuery.ListColumns qry);
+
+    /**
+     * 获取血缘关系图
+     */
+    LineageGraphDto getLineageGraph(MetadataQuery.QueryLineage qry);
+
+    /**
+     * 搜索元数据
+     */
+    List<Object> searchMetadata(MetadataQuery.SearchMetadata qry);
 
 }

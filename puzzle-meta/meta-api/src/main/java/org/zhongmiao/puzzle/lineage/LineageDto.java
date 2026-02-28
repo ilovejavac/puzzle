@@ -1,11 +1,10 @@
 package org.zhongmiao.puzzle.meta;
 
 import lombok.Data;
-import org.zhongmiao.puzzle.meta.enums.LineageEntityType;
-import org.zhongmiao.puzzle.meta.enums.LineageTransformType;
+import org.zhongmiao.puzzle.enums.LineageEntityType;
+import org.zhongmiao.puzzle.enums.LineageTransformType;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * 血缘关系 DTO
