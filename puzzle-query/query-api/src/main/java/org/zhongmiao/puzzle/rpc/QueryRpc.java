@@ -1,50 +1,31 @@
 package org.zhongmiao.puzzle.rpc;
 
-import org.zhongmiao.puzzle.query.DimensionDto;
-import org.zhongmiao.puzzle.query.MetricDto;
-import org.zhongmiao.puzzle.query.MetricQueryRequest;
-import org.zhongmiao.puzzle.query.QueryDto;
-
-import java.util.List;
+import org.zhongmiao.puzzle.query.query.MetricQueryRequest;
+import org.zhongmiao.puzzle.query.query.QueryDto;
 
 /**
- * Query RPC Service
+ * 查询 RPC 服务
+ * <p>
+ * 供其他模块调用，执行查询操作
  */
 public interface QueryRpc {
 
     /**
-     * Execute metric query
+     * 指标查询
+     * <p>
+     * req: {
+     * metricIds: [1, 2],
+     * dimensionIds: [3, 4],
+     * filters: [{dimId: 3, op: "IN", values: ["上海"]}],
+     * timeRange: {start, end, granularity: "DAY"},
+     * limit: 1000
+     * }
      */
-    QueryDto executeQuery(MetricQueryRequest request);
+    QueryDto queryByMetric(MetricQueryRequest request);
 
     /**
-     * Get all metrics
+     * 明细查询
      */
-    List<MetricDto> getAllMetrics();
-
-    /**
-     * Get metric by id
-     */
-    MetricDto getMetric(Long metricId);
-
-    /**
-     * Get all dimensions
-     */
-    List<DimensionDto> getAllDimensions();
-
-    /**
-     * Get dimension by id
-     */
-    DimensionDto getDimension(Long dimensionId);
-
-    /**
-     * Get metrics by model
-     */
-    List<MetricDto> getMetricsByModel(Long modelId);
-
-    /**
-     * Get dimensions by model
-     */
-    List<DimensionDto> getDimensionsByModel(Long modelId);
+    QueryDto queryDetail(QueryDto request);
 
 }
